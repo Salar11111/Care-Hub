@@ -6,17 +6,17 @@ export function Stats() {
   return (
     <section className="mx-auto max-w-7xl px-4 sm:px-6">
       <Reveal>
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-foreground/8 bg-foreground/8 sm:grid-cols-4">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--r-lg)] border border-line bg-line sm:grid-cols-4">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center gap-1.5 bg-background px-6 py-10 text-center"
+              className="flex flex-col items-center gap-1.5 bg-surface px-6 py-10 text-center"
             >
-              <span className="font-display text-4xl font-bold text-teal-600 dark:text-teal-400 sm:text-5xl">
+              <span className="font-display text-4xl font-bold text-accent-strong">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </span>
               <span className="text-sm font-semibold text-foreground">{stat.label}</span>
-              <span className="text-xs text-foreground/55">{stat.note}</span>
+              <span className="text-[length:var(--t-13)] text-muted">{stat.note}</span>
             </div>
           ))}
         </div>
