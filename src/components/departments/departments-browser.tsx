@@ -28,7 +28,7 @@ export function DepartmentsBrowser() {
         <label className="relative block w-full sm:max-w-sm">
           <span className="sr-only">Search departments</span>
           <Search
-            className="pointer-events-none absolute left-4 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-foreground/40"
+            className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted"
             aria-hidden="true"
           />
           <input
@@ -36,36 +36,34 @@ export function DepartmentsBrowser() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by name or service…"
-            className="w-full rounded-full border border-foreground/15 bg-background py-3 pl-11 pr-4 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+            className="field-input pl-11"
           />
         </label>
         <button
           onClick={() => setShowOnlyFeatured((v) => !v)}
           aria-pressed={showOnlyFeatured}
-          className={`inline-flex items-center gap-2 self-start rounded-full border px-5 py-2.5 text-sm font-semibold transition-colors sm:self-auto ${
-            showOnlyFeatured
-              ? "border-teal-600 bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300"
-              : "border-foreground/15 text-foreground/70 hover:border-foreground/30"
+          className={`btn btn--secondary self-start sm:self-auto ${
+            showOnlyFeatured ? "!border-accent !text-accent-strong" : ""
           }`}
         >
           <span
-            className={`h-2 w-2 rounded-full ${showOnlyFeatured ? "bg-teal-500" : "bg-foreground/25"}`}
+            className={`h-2 w-2 rounded-full ${showOnlyFeatured ? "bg-accent" : "bg-muted"}`}
             aria-hidden="true"
           />
           Core specialties
         </button>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-[var(--s-5)] sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((dept) => (
           <DepartmentCard key={dept.slug} department={dept} />
         ))}
       </div>
 
       {filtered.length === 0 ? (
-        <div className="rounded-3xl border border-dashed border-foreground/15 px-6 py-16 text-center">
+        <div className="card border-dashed px-6 py-16 text-center">
           <p className="font-display text-xl font-semibold">No departments found</p>
-          <p className="mt-1 text-sm text-foreground/60">
+          <p className="mt-1 text-sm text-muted">
             Try a different search term, or contact us and we&apos;ll point you in the
             right direction.
           </p>
