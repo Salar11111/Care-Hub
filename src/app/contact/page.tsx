@@ -26,7 +26,7 @@ export default function ContactPage() {
           { icon: Mail, title: "Email us", lines: ["contact@carehub.plus", "Replies within 1h (business hours)"] },
           { icon: Clock, title: "Emergency", lines: ["24/7 — always open", "Call 911 for life-threatening"] },
         ].map((card) => (
-          <div key={card.title} className="flex flex-col gap-3 rounded-3xl border border-foreground/10 p-6">
+          <div key={card.title} className="card flex flex-col gap-3 p-6">
             <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
               <card.icon className="h-5 w-5" aria-hidden="true" />
             </span>
@@ -44,7 +44,7 @@ export default function ContactPage() {
         <ContactForm />
 
         <aside className="flex flex-col gap-6">
-          <div className="rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6">
+          <div className="card p-6">
             <div className="flex items-center gap-3">
               <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
                 <CreditCard className="h-5 w-5" aria-hidden="true" />
@@ -67,16 +67,12 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-4 rounded-3xl bg-gradient-to-br from-teal-600 to-emerald-700 p-6 text-white">
+          <div className="accent-panel flex flex-col gap-4 p-6">
             <h2 className="font-display text-lg font-semibold">Prefer to book online?</h2>
-            <p className="text-sm leading-relaxed text-teal-50/90">
+            <p className="text-sm leading-relaxed text-white/85">
               Skip the queue — you can have a confirmed appointment in under two minutes.
             </p>
-            <ButtonLink
-              href="/book"
-              size="sm"
-              className="!bg-background !text-teal-700 hover:!bg-white"
-            >
+            <ButtonLink href="/book" size="sm">
               Book an appointment
             </ButtonLink>
           </div>
