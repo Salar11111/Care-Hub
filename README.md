@@ -31,6 +31,12 @@ There is no API and no database. The copy and listings live in `src/lib/data.ts`
 
 ---
 
+## 📸 Screenshots
+
+![CareHub Plus home page](docs/screenshots/home.jpg)
+
+---
+
 ## 🚀 Quick start
 
 ```bash
