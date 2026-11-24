@@ -35,7 +35,7 @@ const steps = [
 
 export function Journey() {
   return (
-    <section id="journey" className="bg-foreground/[0.03] py-20 lg:py-28">
+    <section id="journey" className="section border-y border-line bg-surface">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <Reveal>
           <SectionHeading
@@ -44,19 +44,19 @@ export function Journey() {
             description="Four gentle steps, one connected team. We designed every stage to feel less like a system and more like a hand to hold."
           />
         </Reveal>
-        <ol className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, i) => (
-            <Reveal key={step.title} delay={i * 80}>
-              <li className="relative flex h-full flex-col gap-4 rounded-3xl border border-foreground/8 bg-background p-7">
-                <span className="font-display text-4xl font-bold text-foreground/10">
+        <ol className="mt-14 grid gap-[var(--s-5)] sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step) => (
+            <Reveal key={step.title}>
+              <li className="card flex h-full flex-col gap-4 p-7">
+                <span className="font-display text-4xl font-bold text-accent-strong">
                   {step.step}
                 </span>
-                <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
+                <span className="flex h-12 w-12 items-center justify-center rounded-[var(--r-btn)] bg-accent-soft text-accent-strong">
                   <step.icon className="h-6 w-6" aria-hidden="true" />
                 </span>
                 <div>
                   <h3 className="font-display text-lg font-semibold">{step.title}</h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-foreground/65">
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">
                     {step.description}
                   </p>
                 </div>
