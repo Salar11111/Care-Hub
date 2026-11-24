@@ -115,7 +115,7 @@ export function BookingWizard() {
   return (
     <div className="mx-auto max-w-4xl">
       <ol className="mb-10 flex items-center gap-2" aria-label="Booking progress">
-        {steps.map((s, i) => {
+        {steps.map((s) => {
           const active = step === s.n;
           const done = step > s.n;
           return (
@@ -126,12 +126,15 @@ export function BookingWizard() {
                     if (done && appointment === null) setStep(s.n);
                   }}
                   disabled={!done}
-                  className={`flex h-2 flex-1 rounded-full transition-colors ${
-                    done || active ? "bg-teal-600" : "bg-foreground/10"
-                  }`}
+                  className="flex min-h-11 flex-1 items-center"
                   aria-label={`Step ${s.n}: ${s.label}`}
-                />
-                {i < steps.length - 1 ? null : null}
+                >
+                  <span
+                    className={`h-2 w-full rounded-full transition-colors ${
+                      done || active ? "bg-accent" : "bg-line"
+                    }`}
+                  />
+                </button>
               </div>
               <span
                 className={`flex items-center gap-1.5 text-xs font-semibold ${
@@ -164,10 +167,8 @@ export function BookingWizard() {
                 <button
                   key={dept.slug}
                   onClick={() => pickDepartment(dept.slug)}
-                  className={`flex items-center gap-3 rounded-2xl border px-5 py-4 text-left transition-all duration-200 ${
-                    active
-                      ? "border-teal-600 bg-teal-50 dark:bg-teal-950/50"
-                      : "border-foreground/10 bg-background hover:border-teal-600/50 hover:-translate-y-0.5"
+                  className={`card card-hover flex min-h-11 items-center gap-3 px-5 py-4 text-left ${
+                    active ? "!border-accent !bg-accent-soft" : ""
                   }`}
                 >
                   <span
@@ -218,7 +219,7 @@ export function BookingWizard() {
             <div className="mt-10 rounded-3xl border border-dashed border-foreground/15 px-8 py-16 text-center">
               <p className="font-display text-xl font-semibold">No specialists listed yet</p>
               <Button
-                variant="outline"
+                variant="secondary"
                 size="md"
                 className="mt-4"
                 onClick={() => setStep(1)}
@@ -233,16 +234,14 @@ export function BookingWizard() {
                 return (
                   <div
                     key={doc.id}
-                    className={`rounded-3xl border p-6 transition-colors ${
-                      selected
-                        ? "border-teal-600 bg-teal-50/50 dark:bg-teal-950/30"
-                        : "border-foreground/10 bg-background"
+                    className={`card p-6 transition-colors ${
+                      selected ? "!border-accent !bg-accent-soft" : ""
                     }`}
                   >
                     <div className="flex flex-wrap items-center justify-between gap-4">
                       <div className="flex items-center gap-4">
                         <span
-                          className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${doc.avatarClass} text-base font-bold text-white`}
+                          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[var(--r-btn)] bg-surface text-base font-bold text-accent-strong"
                         >
                           {doc.initials}
                         </span>
@@ -267,10 +266,8 @@ export function BookingWizard() {
                               setSlot(av);
                             }}
                             aria-pressed={isActive}
-                            className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                              isActive
-                                ? "border-teal-600 bg-teal-600 text-white"
-                                : "border-foreground/15 text-foreground/75 hover:border-teal-600 hover:text-teal-700 dark:hover:text-teal-300"
+                            className={`btn btn--secondary min-h-11 ${
+                              isActive ? "!border-accent !bg-accent !text-white" : ""
                             }`}
                           >
                             {av === "24/7" ? "24/7 — anytime" : av}
@@ -322,7 +319,7 @@ export function BookingWizard() {
               }}
             >
               <div className="flex flex-col gap-2">
-                <label htmlFor="full-name" className="text-sm font-semibold">
+                <label htmlFor="full-name" className="field-label">
                   Full name
                 </label>
                 <input
@@ -331,12 +328,12 @@ export function BookingWizard() {
                   value={details.name}
                   onChange={(e) => setDetails({ ...details, name: e.target.value })}
                   placeholder="Jane Smith"
-                  className="rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+                  className="field-input"
                 />
               </div>
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="email" className="text-sm font-semibold">
+                  <label htmlFor="email" className="field-label">
                     Email
                   </label>
                   <input
@@ -345,11 +342,11 @@ export function BookingWizard() {
                     value={details.email}
                     onChange={(e) => setDetails({ ...details, email: e.target.value })}
                     placeholder="jane@example.com"
-                    className="rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+                    className="field-input"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="phone" className="text-sm font-semibold">
+                  <label htmlFor="phone" className="field-label">
                     Phone
                   </label>
                   <input
@@ -358,12 +355,12 @@ export function BookingWizard() {
                     value={details.phone}
                     onChange={(e) => setDetails({ ...details, phone: e.target.value })}
                     placeholder="+1 (212) 555-0100"
-                    className="rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+                    className="field-input"
                   />
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <label htmlFor="reason" className="text-sm font-semibold">
+                <label htmlFor="reason" className="field-label">
                   What brings you in? <span className="font-normal text-foreground/50">(optional)</span>
                 </label>
                 <textarea
@@ -372,10 +369,10 @@ export function BookingWizard() {
                   value={details.reason}
                   onChange={(e) => setDetails({ ...details, reason: e.target.value })}
                   placeholder="A few words help your care team prepare…"
-                  className="resize-none rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+                  className="field-input resize-none"
                 />
               </div>
-              <p className="flex items-center gap-2 rounded-2xl bg-foreground/[0.04] px-4 py-3 text-xs text-foreground/60">
+              <p className="flex items-center gap-2 rounded-[var(--r-btn)] bg-background px-4 py-3 text-[length:var(--t-13)] text-muted">
                 <ShieldCheck className="h-4 w-4 shrink-0 text-teal-600 dark:text-teal-400" aria-hidden="true" />
                 Your details are encrypted and used only to prepare for your visit. This demo
                 stores your booking reference locally in your browser.
@@ -387,7 +384,7 @@ export function BookingWizard() {
             </form>
 
             <aside
-              className="flex h-fit flex-col gap-4 rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6"
+              className="card flex h-fit flex-col gap-4 p-6"
               aria-label="Booking summary"
             >
               <h2 className="font-display text-lg font-semibold">Your visit</h2>
@@ -409,7 +406,7 @@ export function BookingWizard() {
                   <dd className="text-right font-semibold">Main Hospital · Floor 2</dd>
                 </div>
               </dl>
-              <p className="rounded-2xl bg-teal-50 px-4 py-3 text-xs leading-relaxed text-teal-800 dark:bg-teal-950/50 dark:text-teal-200">
+              <p className="rounded-[var(--r-btn)] bg-accent-soft px-4 py-3 text-[length:var(--t-13)] leading-relaxed text-accent-strong">
                 Arrive 15 minutes early with a photo ID and insurance card. No referral
                 needed.
               </p>
@@ -420,10 +417,10 @@ export function BookingWizard() {
 
       {step === 4 && appointment ? (
         <section
-          className="flex flex-col items-center gap-6 rounded-[2.5rem] border border-foreground/10 bg-background px-6 py-16 text-center sm:px-16"
+          className="card flex flex-col items-center gap-6 px-6 py-16 text-center sm:px-16"
           aria-labelledby="confirmation"
         >
-          <span className="flex h-20 w-20 items-center justify-center rounded-full bg-teal-50 text-teal-600 dark:bg-teal-950/50 dark:text-teal-300">
+          <span className="flex h-20 w-20 items-center justify-center rounded-full bg-accent-soft text-accent-strong">
             <PartyPopper className="h-10 w-10" aria-hidden="true" />
           </span>
           <h1 id="confirmation" className="font-display text-3xl font-semibold tracking-tight">
@@ -434,7 +431,7 @@ export function BookingWizard() {
             <br />
             Reference <strong className="text-foreground">{appointment.reference}</strong>
           </p>
-          <dl className="grid w-full max-w-lg grid-cols-2 gap-3 rounded-3xl bg-foreground/[0.04] p-6 text-left">
+          <dl className="grid w-full max-w-lg grid-cols-2 gap-3 rounded-[var(--r-lg)] bg-background p-6 text-left">
             <div>
               <dt className="text-xs uppercase tracking-widest text-foreground/45">Time</dt>
               <dd className="mt-1 font-semibold">{appointment.slot}</dd>
@@ -453,7 +450,7 @@ export function BookingWizard() {
             <Button variant="primary" size="md" onClick={() => router.push("/portal")}>
               Go to patient portal
             </Button>
-            <Button variant="outline" size="md" onClick={reset}>
+            <Button variant="secondary" size="md" onClick={reset}>
               <RotateCcw className="h-4 w-4" aria-hidden="true" />
               Book another
             </Button>
