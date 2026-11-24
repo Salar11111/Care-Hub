@@ -23,19 +23,19 @@ export function SiteHeader() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-foreground/5 bg-background/80 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 border-b border-line bg-background">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link
           href="/"
           className="flex items-center gap-2.5"
           aria-label="CareHub Plus — home"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-600 text-white">
+          <span className="flex h-10 w-10 items-center justify-center rounded-[var(--r-btn)] bg-accent text-white">
             <HeartPulse className="h-5 w-5" aria-hidden="true" />
           </span>
           <span className="flex flex-col leading-none">
             <span className="font-display text-lg font-bold tracking-tight">CareHub</span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-teal-600 dark:text-teal-400">
+            <span className="text-[length:var(--t-13)] font-semibold uppercase tracking-[0.14em] text-accent-strong">
               Medical Suite
             </span>
           </span>
@@ -46,10 +46,10 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+              className={`link-underline rounded-[var(--r-btn)] px-4 py-2 text-sm font-medium transition-colors ${
                 isActive(link.href)
-                  ? "bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300"
-                  : "text-foreground/70 hover:bg-foreground/5 hover:text-foreground"
+                  ? "bg-accent-soft text-accent-strong"
+                  : "text-muted hover:text-foreground"
               }`}
             >
               {link.label}
@@ -68,7 +68,7 @@ export function SiteHeader() {
             Book an appointment
           </ButtonLink>
           <button
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/10 md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-[var(--r-btn)] border border-line"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Toggle navigation menu"
@@ -84,7 +84,7 @@ export function SiteHeader() {
 
       {open ? (
         <nav
-          className="border-t border-foreground/5 bg-background px-4 pb-4 pt-2 md:hidden"
+          className="border-t border-line bg-background px-4 pb-4 pt-2 md:hidden"
           aria-label="Mobile"
         >
           <div className="flex flex-col gap-1">
@@ -93,22 +93,24 @@ export function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`rounded-xl px-4 py-3 text-sm font-medium ${
+                className={`rounded-[var(--r-btn)] px-4 py-3 text-sm font-medium ${
                   isActive(link.href)
-                    ? "bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300"
-                    : "text-foreground/75 hover:bg-foreground/5"
+                    ? "bg-accent-soft text-accent-strong"
+                    : "text-muted hover:bg-accent-soft"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
+            <ButtonLink
               href="/book"
+              variant="primary"
+              size="md"
+              className="mt-2"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-teal-600 px-4 py-3 text-sm font-semibold text-white shadow-[0_4px_0_#0f766e]"
             >
               Book an appointment
-            </Link>
+            </ButtonLink>
           </div>
         </nav>
       ) : null}
