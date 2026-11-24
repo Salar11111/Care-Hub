@@ -6,7 +6,7 @@ import { ButtonLink } from "@/components/ui/button";
 
 export function DepartmentsPreview() {
   return (
-    <section id="departments" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-20 sm:px-6 lg:py-28">
+    <section id="departments" className="section mx-auto max-w-7xl scroll-mt-24 px-4 sm:px-6">
       <Reveal>
         <SectionHeading
           eyebrow="Our departments"
@@ -14,7 +14,7 @@ export function DepartmentsPreview() {
           description="Six specialties under one roof — from first check-ups to complex care, every department shares one record, one team and one promise."
         />
       </Reveal>
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-[var(--s-5)] sm:grid-cols-2 lg:grid-cols-3">
         {featuredDepartments.map((dept, i) => (
           <Reveal key={dept.slug} delay={i * 60}>
             <DepartmentCard department={dept} />
@@ -22,7 +22,7 @@ export function DepartmentsPreview() {
         ))}
       </div>
       <div className="mt-10 flex justify-center">
-        <ButtonLink href="/departments" variant="outline" size="md">
+        <ButtonLink href="/departments" variant="secondary" size="md">
           View all 15 departments
         </ButtonLink>
       </div>
