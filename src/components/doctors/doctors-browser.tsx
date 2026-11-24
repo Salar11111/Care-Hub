@@ -12,17 +12,16 @@ export function DoctorsBrowser() {
     [filter],
   );
 
+  const filterButton = (active: boolean) =>
+    `btn btn--secondary ${active ? "!border-accent !text-accent-strong" : ""}`;
+
   return (
     <div>
       <div className="mb-8 flex flex-wrap gap-2">
         <button
           onClick={() => setFilter("all")}
           aria-pressed={filter === "all"}
-          className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
-            filter === "all"
-              ? "border-teal-600 bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300"
-              : "border-foreground/15 text-foreground/70 hover:border-foreground/30"
-          }`}
+          className={filterButton(filter === "all")}
         >
           All ({doctors.length})
         </button>
@@ -33,17 +32,13 @@ export function DoctorsBrowser() {
               key={dept.slug}
               onClick={() => setFilter(dept.slug)}
               aria-pressed={filter === dept.slug}
-              className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
-                filter === dept.slug
-                  ? "border-teal-600 bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300"
-                  : "border-foreground/15 text-foreground/70 hover:border-foreground/30"
-              }`}
+              className={filterButton(filter === dept.slug)}
             >
               {dept.name}
             </button>
           ))}
       </div>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-[var(--s-5)] sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((doc) => (
           <DoctorCard key={doc.id} doctor={doc} />
         ))}
