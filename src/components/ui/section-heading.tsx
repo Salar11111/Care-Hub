@@ -16,8 +16,8 @@ export function SectionHeading({
   return (
     <div className={`flex max-w-2xl flex-col gap-4 ${alignment} ${className}`}>
       {eyebrow ? (
-        <span className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
-          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+        <span className="eyebrow">
+          <span aria-hidden="true" className="eyebrow__dot" />
           {eyebrow}
         </span>
       ) : null}
@@ -25,7 +25,7 @@ export function SectionHeading({
         {title}
       </h2>
       {description ? (
-        <p className="text-base leading-relaxed text-foreground/70">{description}</p>
+        <p className="text-base leading-relaxed text-muted">{description}</p>
       ) : null}
     </div>
   );
