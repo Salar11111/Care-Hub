@@ -32,29 +32,29 @@ export default function FaqPage() {
           ].map((card) => (
             <div
               key={card.title}
-              className="flex flex-col gap-3 rounded-3xl border border-foreground/10 bg-foreground/[0.03] p-6"
+              className="card flex flex-col gap-3 p-6"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
                 <card.icon className="h-5 w-5" aria-hidden="true" />
               </span>
               <h2 className="font-display text-lg font-semibold">{card.title}</h2>
               <p className="text-sm leading-relaxed text-foreground/65">{card.text}</p>
-              <ButtonLink href="/contact" variant="outline" size="sm" className="self-start">
+              <ButtonLink href="/contact" variant="secondary" size="sm" className="self-start">
                 Get in touch
               </ButtonLink>
             </div>
           ))}
-          <div className="flex flex-col gap-3 rounded-3xl bg-gradient-to-br from-teal-600 to-emerald-700 p-6 text-white">
+          <div className="accent-panel flex flex-col gap-3 p-6">
             <Phone className="h-5 w-5" aria-hidden="true" />
             <h2 className="font-display text-lg font-semibold">Front desk</h2>
-            <p className="text-sm text-teal-50/90">
+            <p className="text-sm text-white/85">
               <a href="tel:+12124008000" className="font-semibold underline-offset-4 hover:underline">
                 +1 (212) 400-8000
               </a>
               <br />
               Mon–Sat, 8:00–20:00
             </p>
-            <p className="flex items-center gap-1.5 text-xs text-teal-50/80">
+            <p className="flex items-center gap-1.5 text-[length:var(--t-13)] text-white/80">
               <Clock className="h-3.5 w-3.5" aria-hidden="true" />
               Emergency open 24/7 · <MapPin className="h-3.5 w-3.5" aria-hidden="true" /> 123 Health Avenue
             </p>
