@@ -81,7 +81,7 @@ export const departments: Department[] = [
     description:
       "Our neurologists treat everything from migraines to complex conditions, taking time to explain every finding in plain, kind language so you always know what comes next.",
     services: ["Stroke care", "Epilepsy management", "Memory clinic", "Nerve & muscle disorders"],
-    color: "text-violet-600 bg-violet-50 dark:bg-violet-950/40",
+    color: "text-blue-600 bg-blue-50 dark:bg-blue-950/40",
     featured: true,
   },
   {
@@ -125,7 +125,7 @@ export const departments: Department[] = [
     description:
       "A multidisciplinary team plans your treatment together — and explains it with patience and warmth. You are never just a chart number; you are a person we walk beside.",
     services: ["Chemotherapy", "Radiation therapy", "Screening programs", "Palliative support"],
-    color: "text-fuchsia-600 bg-fuchsia-50 dark:bg-fuchsia-950/40",
+    color: "text-rose-600 bg-rose-50 dark:bg-rose-950/40",
     featured: true,
   },
   {
@@ -146,7 +146,7 @@ export const departments: Department[] = [
     description:
       "From a child's first hearing test to sinus surgery, our ENT team listens first and treats second. Hearing aids, voice care, and allergy clinics under one roof.",
     services: ["Hearing tests", "Sinus treatment", "Tonsil & adenoid care", "Balance disorders"],
-    color: "text-indigo-600 bg-indigo-50 dark:bg-indigo-950/40",
+    color: "text-blue-600 bg-blue-50 dark:bg-blue-950/40",
   },
   {
     slug: "gastroenterology",
@@ -216,7 +216,7 @@ export const departments: Department[] = [
     description:
       "Advanced imaging with results you can understand — X-ray, MRI, CT, and ultrasound all read by specialists who explain findings without the jargon.",
     services: ["MRI & CT scans", "X-ray", "Ultrasound", "Mammography"],
-    color: "text-purple-600 bg-purple-50 dark:bg-purple-950/40",
+    color: "text-sky-600 bg-sky-50 dark:bg-sky-950/40",
   },
   {
     slug: "physical-therapy",
@@ -263,7 +263,7 @@ export const doctors: Doctor[] = [
     department: "oncology",
     specialty: "Medical Oncology",
     initials: "RK",
-    avatarClass: "from-fuchsia-500 to-purple-600",
+    avatarClass: "from-rose-500 to-pink-600",
     yearsExperience: 21,
     rating: 4.8,
     reviews: 356,
@@ -302,7 +302,7 @@ export const doctors: Doctor[] = [
     department: "neurology",
     specialty: "Neurology & Stroke Care",
     initials: "EV",
-    avatarClass: "from-violet-500 to-indigo-600",
+    avatarClass: "from-blue-500 to-cyan-600",
     yearsExperience: 19,
     rating: 4.9,
     reviews: 274,
