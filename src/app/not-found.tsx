@@ -20,11 +20,11 @@ export default function NotFound() {
         <ButtonLink href="/" variant="primary" size="md">
           Back to home
         </ButtonLink>
-        <ButtonLink href="/departments" variant="outline" size="md">
+        <ButtonLink href="/departments" variant="secondary" size="md">
           View departments
         </ButtonLink>
       </div>
-      <Link href="/faq" className="text-sm font-semibold text-teal-600 underline-offset-4 hover:underline dark:text-teal-400">
+      <Link href="/faq" className="link-underline text-sm font-semibold text-accent-strong">
         Need help? Visit the FAQ
       </Link>
     </div>
