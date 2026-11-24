@@ -14,16 +14,16 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-3xl border border-foreground/10 bg-background px-8 py-16 text-center">
-        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 text-teal-600 dark:bg-teal-950/50 dark:text-teal-300">
+      <div className="card flex flex-col items-center gap-4 px-8 py-16 text-center">
+        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-accent-soft text-accent-strong">
           <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
         </span>
         <h2 className="font-display text-2xl font-semibold">Message received</h2>
-        <p className="max-w-sm text-sm text-foreground/65">
+        <p className="max-w-sm text-sm text-muted">
           Thanks for reaching out — someone from our care team will get back to you
           within one hour during opening hours.
         </p>
-        <Button variant="outline" size="sm" onClick={() => setSent(false)}>
+        <Button variant="secondary" size="sm" onClick={() => setSent(false)}>
           Send another message
         </Button>
       </div>
@@ -31,34 +31,34 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <form onSubmit={handleSubmit} className="card flex flex-col gap-5 p-6 sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <label htmlFor="c-name" className="text-sm font-semibold">Full name</label>
+          <label htmlFor="c-name" className="field-label">Full name</label>
           <input
             id="c-name"
             required
             placeholder="Jane Smith"
-            className="rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+            className="field-input"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="c-email" className="text-sm font-semibold">Email</label>
+          <label htmlFor="c-email" className="field-label">Email</label>
           <input
             id="c-email"
             type="email"
             required
             placeholder="jane@example.com"
-            className="rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+            className="field-input"
           />
         </div>
       </div>
       <div className="flex flex-col gap-2">
-        <label htmlFor="c-subject" className="text-sm font-semibold">Topic</label>
+        <label htmlFor="c-subject" className="field-label">Topic</label>
         <select
           id="c-subject"
           defaultValue="General question"
-          className="rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+          className="field-input"
         >
           <option>General question</option>
           <option>Appointments & referrals</option>
@@ -68,13 +68,13 @@ export function ContactForm() {
         </select>
       </div>
       <div className="flex flex-col gap-2">
-        <label htmlFor="c-message" className="text-sm font-semibold">How can we help?</label>
+        <label htmlFor="c-message" className="field-label">How can we help?</label>
         <textarea
           id="c-message"
           required
           rows={5}
           placeholder="Tell us a little about what you need…"
-          className="resize-none rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+          className="field-input resize-none"
         />
       </div>
       <Button type="submit" variant="primary" size="md" className="self-start">
