@@ -57,7 +57,7 @@ export default function AboutPage() {
         <Reveal>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
+              <span className="eyebrow">
                 <Globe2 className="h-3.5 w-3.5" aria-hidden="true" />
                 Since 2001
               </span>
@@ -75,18 +75,18 @@ export default function AboutPage() {
                 <ButtonLink href="/book" variant="primary" size="lg">
                   Experience the difference
                 </ButtonLink>
-                <ButtonLink href="/departments" variant="outline" size="lg">
+                <ButtonLink href="/departments" variant="secondary" size="lg">
                   Explore departments
                 </ButtonLink>
               </div>
             </div>
             <Reveal delay={100}>
-              <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-teal-500 to-emerald-700 p-8 text-white shadow-2xl shadow-teal-900/30">
+              <div className="accent-panel p-8">
                 <p className="font-display text-2xl font-medium leading-snug">
                   &ldquo;Kindness is a clinical skill. We hire for it, train for it, and
                   measure it — because it changes outcomes.&rdquo;
                 </p>
-                <p className="mt-6 text-sm font-semibold text-teal-50/90">
+                <p className="mt-6 text-sm font-semibold text-white/85">
                   Dr. Eleanor Vance — Founder
                 </p>
               </div>
@@ -97,11 +97,11 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6">
         <Reveal>
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-foreground/8 bg-foreground/8 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--r-lg)] border border-line bg-line sm:grid-cols-4">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="flex flex-col items-center gap-1.5 bg-background px-6 py-10 text-center"
+                className="flex flex-col items-center gap-1.5 bg-surface px-6 py-10 text-center"
               >
                 <span className="font-display text-4xl font-bold text-teal-600 dark:text-teal-400 sm:text-5xl">
                   <Counter value={stat.value} suffix={stat.suffix} />
@@ -125,7 +125,7 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v, i) => (
               <Reveal key={v.title} delay={i * 70}>
-                <div className="flex h-full flex-col gap-4 rounded-3xl border border-foreground/8 bg-background p-7">
+                <div className="card flex h-full flex-col gap-4 p-7">
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
                     <v.icon className="h-6 w-6" aria-hidden="true" />
                   </span>
