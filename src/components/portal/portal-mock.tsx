@@ -58,7 +58,7 @@ export function PortalMock() {
     return (
       <div className="mx-auto grid max-w-5xl items-center gap-10 lg:grid-cols-2">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
+          <span className="eyebrow">
             <LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" />
             Patient portal
           </span>
@@ -86,7 +86,7 @@ export function PortalMock() {
         </div>
 
         <form
-          className="flex flex-col gap-5 rounded-[2.5rem] border border-foreground/10 bg-background p-8 shadow-xl sm:p-10"
+          className="card flex flex-col gap-5 p-8 sm:p-10"
           onSubmit={(e) => {
             e.preventDefault();
             if (email.trim() && password.trim()) setSignedIn(true);
@@ -102,7 +102,7 @@ export function PortalMock() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="p-email" className="text-sm font-semibold">Email</label>
+            <label htmlFor="p-email" className="field-label">Email</label>
             <input
               id="p-email"
               type="email"
@@ -110,11 +110,11 @@ export function PortalMock() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+              className="field-input"
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="p-password" className="text-sm font-semibold">Password</label>
+            <label htmlFor="p-password" className="field-label">Password</label>
             <input
               id="p-password"
               type="password"
@@ -122,7 +122,7 @@ export function PortalMock() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
-              className="rounded-2xl border border-foreground/15 bg-background px-5 py-3.5 text-sm outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20"
+              className="field-input"
             />
           </div>
           <Button type="submit" variant="primary" size="lg">
@@ -140,9 +140,9 @@ export function PortalMock() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      <div className="flex flex-wrap items-center justify-between gap-4 rounded-3xl border border-foreground/10 bg-foreground/[0.03] px-6 py-5">
+      <div className="card flex flex-wrap items-center justify-between gap-4 px-6 py-5">
         <div className="flex items-center gap-4">
-          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 text-lg font-bold text-white">
+          <span className="flex h-14 w-14 items-center justify-center rounded-[var(--r-btn)] bg-accent-soft text-lg font-bold text-accent-strong">
             {email.trim().charAt(0).toUpperCase() || "U"}
           </span>
           <div>
@@ -150,7 +150,7 @@ export function PortalMock() {
             <p className="text-sm text-foreground/60">{email}</p>
           </div>
         </div>
-        <Button variant="outline" size="sm" onClick={() => setSignedIn(false)}>
+        <Button variant="secondary" size="sm" onClick={() => setSignedIn(false)}>
           <LogOut className="h-4 w-4" aria-hidden="true" />
           Sign out
         </Button>
@@ -158,17 +158,17 @@ export function PortalMock() {
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[0.4fr_0.6fr]">
         <div className="flex flex-col gap-6">
-          <div className="rounded-3xl bg-gradient-to-br from-teal-600 to-emerald-700 p-6 text-white">
-            <p className="text-xs font-bold uppercase tracking-widest text-teal-50/80">
+          <div className="accent-panel p-6">
+            <p className="text-[length:var(--t-13)] font-bold uppercase tracking-widest text-white/80">
               Protection score
             </p>
             <p className="mt-1 font-display text-5xl font-bold">100%</p>
-            <p className="mt-2 text-sm text-teal-50/90">
+            <p className="mt-2 text-sm text-white/90">
               Fully covered · All care at CareHub is in-network.
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 rounded-3xl border border-foreground/10 p-6">
+          <div className="card flex flex-col gap-3 p-6">
             <h2 className="flex items-center gap-2 font-display text-lg font-semibold">
               <Stethoscope className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden="true" />
               Quick care
@@ -195,13 +195,13 @@ export function PortalMock() {
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="rounded-3xl border border-foreground/10 p-6">
+          <div className="card p-6">
             <div className="flex items-center justify-between">
               <h2 className="flex items-center gap-2 font-display text-lg font-semibold">
                 <CalendarCheck className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden="true" />
                 Upcoming visits
               </h2>
-              <a href="/book" className="text-sm font-semibold text-teal-600 underline-offset-4 hover:underline dark:text-teal-400">
+              <a href="/book" className="link-underline text-sm font-semibold text-accent-strong">
                 Book more
               </a>
             </div>
@@ -239,7 +239,7 @@ export function PortalMock() {
                 <p className="max-w-xs text-sm text-foreground/60">
                   Bookings you make online will show up here automatically.
                 </p>
-                <a href="/book" className="text-sm font-semibold text-teal-600 underline-offset-4 hover:underline dark:text-teal-400">
+                <a href="/book" className="link-underline text-sm font-semibold text-accent-strong">
                   Book your first visit →
                 </a>
               </div>
@@ -252,7 +252,7 @@ export function PortalMock() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
-            <div className="rounded-3xl border border-foreground/10 p-6">
+            <div className="card p-6">
               <div className="flex items-center gap-2">
                 <Activity className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden="true" />
                 <h2 className="font-display text-lg font-semibold">Latest results</h2>
@@ -271,7 +271,7 @@ export function PortalMock() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-3xl border border-foreground/10 p-6">
+            <div className="card p-6">
               <div className="flex items-center gap-2">
                 <UserRound className="h-5 w-5 text-teal-600 dark:text-teal-400" aria-hidden="true" />
                 <h2 className="font-display text-lg font-semibold">Your care team</h2>
@@ -281,7 +281,7 @@ export function PortalMock() {
                 <br />
                 Your primary point of care.
               </p>
-              <a href="/doctors" className="mt-3 inline-block text-sm font-semibold text-teal-600 underline-offset-4 hover:underline dark:text-teal-400">
+              <a href="/doctors" className="link-underline mt-3 inline-block text-sm font-semibold text-accent-strong">
                 Meet the team →
               </a>
             </div>
