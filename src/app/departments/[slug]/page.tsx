@@ -37,7 +37,7 @@ export default async function DepartmentPage({ params }: Props) {
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-16">
       <Link
         href="/departments"
-        className="inline-flex items-center gap-2 text-sm font-semibold text-foreground/60 transition-colors hover:text-teal-600 dark:hover:text-teal-400"
+        className="link-underline inline-flex items-center gap-2 text-sm font-semibold text-muted transition-colors hover:text-accent-strong"
       >
         <ArrowLeft className="h-4 w-4" aria-hidden="true" />
         All departments
@@ -73,7 +73,7 @@ export default async function DepartmentPage({ params }: Props) {
               {dept.services.map((service) => (
                 <li
                   key={service}
-                  className="flex items-center gap-3 rounded-2xl border border-foreground/8 bg-background px-5 py-4"
+                  className="card flex min-h-11 items-center gap-3 px-5 py-4"
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700 dark:bg-teal-950/50 dark:text-teal-300">
                     <Check className="h-4 w-4" aria-hidden="true" />
@@ -82,7 +82,7 @@ export default async function DepartmentPage({ params }: Props) {
                 </li>
               ))}
             </ul>
-            <div className="mt-2 flex items-start gap-3 rounded-2xl bg-teal-50 px-5 py-4 dark:bg-teal-950/40">
+            <div className="mt-2 flex items-start gap-3 rounded-[var(--r-btn)] bg-accent-soft px-5 py-4">
               <Clock className="mt-0.5 h-5 w-5 shrink-0 text-teal-700 dark:text-teal-300" aria-hidden="true" />
               <p className="text-sm leading-relaxed text-teal-900 dark:text-teal-100">
                 <strong>Hours:</strong> Mon–Sat 8:00–20:00 · Emergency &amp; trauma always
@@ -102,7 +102,7 @@ export default async function DepartmentPage({ params }: Props) {
                 ))}
               </div>
             ) : (
-              <p className="rounded-2xl border border-dashed border-foreground/15 px-6 py-10 text-center text-sm text-foreground/60">
+              <p className="card border-dashed px-6 py-10 text-center text-sm text-muted">
                 Specialists for this department are available — book an appointment and
                 we&apos;ll match you with the right clinician.
               </p>
